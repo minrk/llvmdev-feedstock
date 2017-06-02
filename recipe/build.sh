@@ -3,14 +3,15 @@ cd build
 
 # Not supported until trunk/4.xx: -DLLVM_CCACHE_BUILD=$ENABLE_CCACHE \
 # Instead work with explicit CC=ccache cc
-#if [ -x "$(command -v ccache)" ]; then
-#  ENABLE_CCACHE=ON
-#else
-#  ENABLE_CCACHE=OFF
-#  echo "WARNING: Failed to find ccache"
-#fi
+if [ -x "$(command -v ccache)" ]; then
+  ENABLE_CCACHE=ON
+else
+  ENABLE_CCACHE=OFF
+  echo "WARNING: Failed to find ccache"
+fi
 
 cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+      -DLLVM_CCACHE_BUILD=$ENABLE_CCACHE \
       -DCMAKE_BUILD_TYPE=Release \
       -DLLVM_ENABLE_RTTI=ON \
       -DLLVM_INCLUDE_TESTS=OFF \
