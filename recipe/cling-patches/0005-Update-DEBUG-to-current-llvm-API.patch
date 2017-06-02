@@ -1,17 +1,17 @@
-From 69b22f09dd25ac3a41d3050979c5158cc79967c4 Mon Sep 17 00:00:00 2001
+From 60e69c8e3a85dcd1c5343b3f1152068f472a7177 Mon Sep 17 00:00:00 2001
 From: Axel Naumann <Axel.Naumann@cern.ch>
 Date: Wed, 4 May 2016 11:40:00 +0200
-Subject: [PATCH 06/10] Update DEBUG to current llvm API.
+Subject: [PATCH 5/9] Update DEBUG to current llvm API.
 
 ---
  lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp | 11 ++++++-----
  1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp b/lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp
-index 4397a7b..2df55cb 100644
+index 1fbdc57..06f9d51 100644
 --- a/lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp
 +++ b/lib/ExecutionEngine/RuntimeDyld/RuntimeDyld.cpp
-@@ -613,11 +613,12 @@ void RuntimeDyldImpl::emitWeakSymbols(const ObjectFile &Obj,
+@@ -631,11 +631,12 @@ void RuntimeDyldImpl::emitWeakSymbols(const ObjectFile &Obj,
      unsigned SectionID = findOrEmitSection(Obj, *SI, IsCode, LocalSections);
  
      DEBUG(
@@ -30,5 +30,5 @@ index 4397a7b..2df55cb 100644
      GlobalSymbolTable[Name] =
        SymbolTableEntry(SectionID, SectOffset, RTDyldSymFlags);
 -- 
-2.7.4
+2.6.0
 
